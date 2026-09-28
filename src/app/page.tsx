@@ -1,0 +1,56 @@
+import Image from 'next/image';
+import Link from 'next/link';
+import SectionHeading from './components/SectionHeading';
+import DivisionCard from './components/DivisionCard';
+import ProjectCard from './components/ProjectCard';
+import WhatsAppButton from './components/WhatsAppButton';
+import { getDivisions, getFeaturedProjects } from '@/lib/cms';
+
+export default async function HomePage() {
+  const divisions = await getDivisions();
+  const featured = await getFeaturedProjects();
+  return (
+    <>
+      <section className="hero section-dark">
+        <div className="container hero-grid">
+          <div className="hero-copy">
+            <p className="eyebrow eyebrow--light">One brand. Many possibilities.</p>
+            <h1>Design the space. Detail the structure. Build the system.</h1>
+            <p className="hero-lead">Bahl is a growing design and technical company helping people and businesses move from idea to something useful, buildable and ready to act on.</p>
+            <div className="hero-actions"><Link className="btn btn--light" href="/contact">Request a consultation <span aria-hidden="true">↗</span></Link><WhatsAppButton label="WhatsApp" className="btn--dark-ghost" /></div>
+            <div className="trust-row"><span>01 / Clarity</span><span>02 / Proof</span><span>03 / Action</span></div>
+          </div>
+          <div className="hero-media" aria-label="Abstract Bahl brand mark and project surface">
+            <div className="hero-orbit hero-orbit--one" /><div className="hero-orbit hero-orbit--two" />
+            <div className="hero-brand-card"><div className="hero-brand-mark">B</div><span>BAHL</span><small>Design · Engineering · Digital</small></div>
+            <div className="hero-photo"><Image src="https://images.unsplash.com/photo-1511818966892-d7d671e672a2?auto=format&fit=crop&w=1400&q=82" alt="Modern architectural structure" fill priority sizes="(max-width: 900px) 100vw, 50vw" className="cover-image" /></div>
+          </div>
+        </div>
+      </section>
+
+      <section className="section" aria-labelledby="divisions-title">
+        <div className="container"><SectionHeading eyebrow="Divisions" title="Different disciplines. One Bahl standard." body="Start with the branch you need. Each division shares the same commitment to clarity, useful thinking and finished work." />
+          <div className="division-grid">{divisions.map((division) => <DivisionCard key={division.id} division={division} />)}</div>
+        </div>
+      </section>
+
+      <section className="section section-muted" aria-labelledby="featured-title">
+        <div className="container"><div className="split-heading"><SectionHeading eyebrow="Selected work" title="Proof before promises." body="A small launch portfolio with the detail a potential client actually needs to see." /><Link className="text-link" href="/portfolio">See all projects <span aria-hidden="true">→</span></Link></div>
+          <div className="project-grid">{featured.map((project) => <ProjectCard key={project.id} project={project} />)}</div>
+        </div>
+      </section>
+
+      <section className="section" aria-labelledby="process-title">
+        <div className="container process-wrap"><SectionHeading eyebrow="Our process" title="Simple enough to understand. Detailed enough to trust." />
+          <div className="process-grid">
+            {[['01','Listen','We start with what you are trying to achieve, what is fixed and what can change.'],['02','Shape','We turn the brief into a clear scope, direction and next set of decisions.'],['03','Build','We produce the design, drawings or digital system with practical coordination.'],['04','Refine','We review, improve and hand over something the next person can actually use.']].map(([num,title,text]) => <article key={num} className="process-step"><span>{num}</span><h3>{title}</h3><p>{text}</p></article>)}
+          </div>
+        </div>
+      </section>
+
+      <section className="cta-section section-dark">
+        <div className="container cta-inner"><div><p className="eyebrow eyebrow--light">Have something in mind?</p><h2>Bring us the problem. We’ll work out the next move.</h2></div><div className="cta-actions"><Link className="btn btn--light" href="/contact">Talk to Bahl <span aria-hidden="true">↗</span></Link><Link className="btn btn--dark-outline" href="/portfolio">View work</Link></div></div>
+      </section>
+    </>
+  );
+}
