@@ -4,6 +4,7 @@ import SectionHeading from './components/SectionHeading';
 import DivisionCard from './components/DivisionCard';
 import ProjectCard from './components/ProjectCard';
 import WhatsAppButton from './components/WhatsAppButton';
+import Button from './components/Button';
 import BahlBird from './components/BahlBird';
 import BahlWordmark from './components/BahlWordmark';
 import { getDivisions, getFeaturedProjects } from '@/lib/cms';
@@ -20,8 +21,8 @@ export default async function HomePage() {
             <h1>One Bahl for every idea worth building.</h1>
             <p className="hero-lead">Design, structural detailing and digital systems brought together under one growing brand — so you can move from idea to a clear next step without changing teams at every turn.</p>
             <div className="hero-actions">
-              <Link className="btn btn--light" href="/contact">Request a consultation <span aria-hidden="true">↗</span></Link>
-              <WhatsAppButton label="WhatsApp" className="btn--dark-ghost" />
+              <Button variant="light" href="/contact" arrow>Request a consultation</Button>
+              <WhatsAppButton label="WhatsApp" variant="dark" size="sm" location="home_hero" />
             </div>
             <div className="trust-row"><span>01 / Clarity</span><span>02 / Proof</span><span>03 / Action</span></div>
           </div>
@@ -62,7 +63,7 @@ export default async function HomePage() {
       </section>
 
       <section className="cta-section section-dark">
-        <div className="container cta-inner"><div><p className="eyebrow eyebrow--light">Have something in mind?</p><h2>Bring us the problem. We’ll work out the next move.</h2></div><div className="cta-actions"><Link className="btn btn--light" href="/contact">Talk to Bahl <span aria-hidden="true">↗</span></Link><Link className="btn btn--dark-outline" href="/portfolio">View work</Link></div></div>
+        <div className="container cta-inner"><div><p className="eyebrow eyebrow--light">Have something in mind?</p><h2>Bring us the problem. We’ll work out the next move.</h2></div><div className="cta-actions"><Button variant="light" href="/contact" arrow>Talk to Bahl</Button><Button variant="dark-outline" href="/portfolio">View work</Button></div></div>
       </section>
     </>
   );

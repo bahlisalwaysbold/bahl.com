@@ -17,7 +17,7 @@ export default function Footer() {
         <div>
           <p className="footer-label">Contact</p>
           <div className="footer-links"><a href="mailto:hello@bahl.com.ng">hello@bahl.com.ng</a><span>Abuja, Nigeria</span></div>
-          <WhatsAppButton label="Start on WhatsApp" className="footer-whatsapp" />
+          <WhatsAppButton label="Start on WhatsApp" variant="outline" size="sm" className="footer-whatsapp" location="footer" />
         </div>
       </div>
       <div className="container footer-bottom"><span>© {new Date().getFullYear()} Bahl. All rights reserved.</span><span>Built for clarity, proof and action.</span></div>

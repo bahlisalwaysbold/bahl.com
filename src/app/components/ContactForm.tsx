@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { trackEvent } from '@/lib/analytics';
 import { divisions, projects } from '@/data/content';
+import Button from './Button';
 
 const initial = { name: '', phone: '', email: '', service: '', projectType: '', location: '', budget: '', message: '', division: '', website: '' };
 
@@ -43,7 +44,9 @@ export default function ContactForm({ defaultDivision = '' }: { defaultDivision?
       <label>Tell us about the project<textarea required name="message" rows={6} value={form.message} onChange={(e) => update('message', e.target.value)} /></label>
       <div className="honeypot" aria-hidden="true"><label>Website<input tabIndex={-1} autoComplete="off" name="website" value={form.website} onChange={(e) => update('website', e.target.value)} /></label></div>
       <div className="form-actions">
-        <button className="btn btn--solid" type="submit" disabled={status === 'sending'}>{status === 'sending' ? 'Sending…' : 'Request a consultation'} <span aria-hidden="true">↗</span></button>
+        <Button variant="solid" type="submit" disabled={status === 'sending'} arrow>
+          {status === 'sending' ? 'Sending…' : 'Request a consultation'}
+        </Button>
         <p className="form-note">We use your details only to respond to this enquiry.</p>
       </div>
       {status === 'success' && <p className="form-status form-status--success" role="status">Thanks — your enquiry is in. We’ll get back to you with the next step.</p>}

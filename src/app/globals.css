@@ -38,16 +38,34 @@ img { max-width: 100%; }
 .main-nav a { position: relative; padding: 8px 0; }
 .main-nav a:not(.btn):not(.brand-lockup)::after { content: ""; position: absolute; left: 0; right: 0; bottom: 1px; height: 2px; transform: scaleX(0); transform-origin: right; background: currentColor; transition: transform .25s ease; }
 .main-nav a:not(.btn):hover::after, .main-nav a:not(.btn):focus-visible::after { transform: scaleX(1); transform-origin: left; }
-.menu-toggle { display: none; border: 0; background: transparent; font-size: 1.65rem; padding: 8px; cursor: pointer; }
+.main-nav a[aria-current="page"]::after { transform: scaleX(1); }
+.menu-toggle { display: none; border: 0; background: transparent; font-size: 1.65rem; padding: 8px; cursor: pointer; min-width: 44px; min-height: 44px; align-items: center; justify-content: center; }
 
-.btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 48px; padding: 0 20px; border-radius: 999px; border: 1px solid transparent; font-weight: 800; transition: transform .2s ease, box-shadow .2s ease, background-color .2s ease, border-color .2s ease; cursor: pointer; }
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 48px; padding: 0 20px; border-radius: 999px; border: 1px solid transparent; font-weight: 800; line-height: 1.2; text-align: center; transition: transform .2s ease, box-shadow .2s ease, background-color .2s ease, border-color .2s ease, color .2s ease; cursor: pointer; }
 .btn:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(16,17,20,.14); }
-.btn:disabled { opacity: .6; cursor: wait; transform: none; box-shadow: none; }
+.btn:active { transform: translateY(0) scale(.98); }
+.btn:disabled { opacity: .6; cursor: not-allowed; transform: none; box-shadow: none; }
+.btn--sm { min-height: 44px; padding: 0 16px; font-size: .92rem; }
 .btn--solid { background: var(--ink); color: #fff; }
 .btn--light { background: #fff; color: var(--ink); }
 .btn--ghost { background: transparent; border-color: var(--ink); color: var(--ink); }
 .btn--dark-ghost { color: #fff; border-color: rgba(255,255,255,.35); }
 .btn--dark-outline { color: #fff; border-color: rgba(255,255,255,.28); }
+.btn__icon { width: 20px; height: 20px; flex: none; }
+.btn:focus-visible { outline: 3px solid #2a73ff; outline-offset: 3px; }
+
+/* WhatsApp CTA — green brand lockup so it reads as a distinct channel. */
+.btn--whatsapp-base { --wa-green: #25d366; --wa-green-dark: #1da851; }
+.btn--whatsapp { background: var(--wa-green); color: #06301a; border-color: transparent; }
+.btn--whatsapp:hover { background: #2fe06f; box-shadow: 0 10px 26px rgba(37,211,102,.32); }
+.btn--whatsapp:active { background: var(--wa-green-dark); }
+.btn--whatsapp-outline { background: transparent; color: #0f7a3d; border-color: rgba(37,211,102,.55); }
+.btn--whatsapp-outline:hover { background: rgba(37,211,102,.1); border-color: var(--wa-green); box-shadow: 0 10px 26px rgba(37,211,102,.18); }
+.btn--whatsapp-dark { background: rgba(37,211,102,.14); color: #5ef29a; border-color: rgba(37,211,102,.42); }
+.btn--whatsapp-dark:hover { background: rgba(37,211,102,.24); border-color: var(--wa-green); box-shadow: 0 10px 26px rgba(37,211,102,.2); }
+.btn--whatsapp-base .btn__icon { transition: transform .2s ease; }
+.btn--whatsapp-base:hover .btn__icon { transform: translateY(-1px) scale(1.06); }
+.btn--whatsapp-base:active .btn__icon { transform: none; }
 .nav-whatsapp { min-height: 40px; padding-inline: 16px; }
 
 .hero { min-height: calc(100vh - 76px); padding: 70px 0 80px; display: flex; align-items: center; }
@@ -71,11 +89,12 @@ img { max-width: 100%; }
 
 /* Global BAHL bird loader */
 .page-loader {
-  --loader-flap: 780ms;
-  --loader-flap-delay: 300ms;
+  --loader-flap: 880ms;
+  --loader-flap-delay: 260ms;
   --loader-settle: 300ms;
-  --loader-exit: 600ms;
-  --loader-ease: cubic-bezier(.45,.05,.35,1);
+  --loader-exit: 560ms;
+  --loader-pivot-left: 72px 44px;
+  --loader-pivot-right: 102px 46px;
   position: fixed;
   inset: 0;
   z-index: 9999;
@@ -94,13 +113,60 @@ img { max-width: 100%; }
   transition: opacity var(--loader-exit) cubic-bezier(.4,0,.2,1), transform var(--loader-exit) cubic-bezier(.4,0,.2,1);
 }
 .page-loader--exit { opacity: 0; transform: scale(1.02) translateY(-6px); pointer-events: none; }
-.page-loader__bird { width: 118px; height: 126px; color: #ffffff; overflow: visible; animation: bahlLoaderSettle var(--loader-settle) cubic-bezier(.2,.8,.25,1) both; }
-.page-loader__base, .page-loader__wing { transform-box: view-box; }
-.page-loader__wing--upper { transform-origin: 82px 58px; animation: bahlLoaderWingUpper var(--loader-flap) var(--loader-ease) var(--loader-flap-delay) infinite; }
-.page-loader__wing--lower { transform-origin: 82px 72px; animation: bahlLoaderWingLower var(--loader-flap) var(--loader-ease) var(--loader-flap-delay) infinite; }
-@keyframes bahlLoaderSettle { 0% { opacity: 0; transform: scale(.9); } 100% { opacity: 1; transform: scale(1); } }
-@keyframes bahlLoaderWingUpper { 0%,100% { transform: rotate(0deg); } 20% { transform: rotate(-18deg); } 45% { transform: rotate(20deg); } 70% { transform: rotate(-14deg); } }
-@keyframes bahlLoaderWingLower { 0%,100% { transform: rotate(0deg); } 20% { transform: rotate(14deg); } 45% { transform: rotate(-17deg); } 70% { transform: rotate(10deg); } }
+.page-loader__bird {
+  width: 118px;
+  height: 126px;
+  color: #ffffff;
+  overflow: visible;
+  animation: bahlLoaderSettle var(--loader-settle) cubic-bezier(.2,.8,.25,1) both;
+}
+.page-loader__lift { transform-box: view-box; transform-origin: 50% 60%; }
+.page-loader__wing { transform-box: view-box; }
+
+/* Shoulder pivots sit inside the body band so rotation cannot tear the silhouette. */
+.page-loader__wing--left { transform-origin: var(--loader-pivot-left); }
+.page-loader__wing--right { transform-origin: var(--loader-pivot-right); }
+
+.page-loader--enter .page-loader__wing--left { animation: bahlWingLeft var(--loader-flap) linear var(--loader-flap-delay) infinite both; }
+.page-loader--enter .page-loader__wing--right { animation: bahlWingRight var(--loader-flap) linear var(--loader-flap-delay) infinite both; }
+.page-loader--enter .page-loader__lift { animation: bahlBodyLift var(--loader-flap) linear var(--loader-flap-delay) infinite both; }
+
+@keyframes bahlLoaderSettle { 0% { opacity: 0; transform: scale(.92); } 100% { opacity: 1; transform: scale(1); } }
+
+/* Left wing. Upstroke is light and quick, downstroke is heavier and slower.
+   The wing also compresses slightly on the upstroke and extends on the push. */
+@keyframes bahlWingLeft {
+  0%   { transform: rotate(0deg) scale(1, 1); animation-timing-function: cubic-bezier(.4,0,.8,.5); }
+  7%   { transform: rotate(1.6deg) scale(1, .985); animation-timing-function: cubic-bezier(.2,.7,.35,1); }
+  28%  { transform: rotate(-19deg) scale(1.01, .955); animation-timing-function: cubic-bezier(.6,0,.9,.45); }
+  38%  { transform: rotate(-15deg) scale(1.01, .96); animation-timing-function: cubic-bezier(.25,.85,.3,1); }
+  68%  { transform: rotate(13deg) scale(1.02, 1.035); animation-timing-function: cubic-bezier(.35,0,.55,1); }
+  84%  { transform: rotate(4deg) scale(1, 1.005); animation-timing-function: cubic-bezier(.3,0,.4,1); }
+  100% { transform: rotate(0deg) scale(1, 1); }
+}
+
+/* Right wing. Mirrored, with a small timing and amplitude offset so the pair
+   never reads as a single mechanical transform. */
+@keyframes bahlWingRight {
+  0%   { transform: rotate(0deg) scale(1, 1); animation-timing-function: cubic-bezier(.4,0,.8,.5); }
+  9%   { transform: rotate(-1.2deg) scale(1, .99); animation-timing-function: cubic-bezier(.2,.7,.35,1); }
+  30%  { transform: rotate(17deg) scale(1.01, .96); animation-timing-function: cubic-bezier(.6,0,.9,.45); }
+  40%  { transform: rotate(13.5deg) scale(1.01, .965); animation-timing-function: cubic-bezier(.25,.85,.3,1); }
+  70%  { transform: rotate(-12deg) scale(1.02, 1.03); animation-timing-function: cubic-bezier(.35,0,.55,1); }
+  86%  { transform: rotate(-3.5deg) scale(1, 1.005); animation-timing-function: cubic-bezier(.3,0,.4,1); }
+  100% { transform: rotate(0deg) scale(1, 1); }
+}
+
+/* Body response: a few pixels of lift as the wings push down, then settle. */
+@keyframes bahlBodyLift {
+  0%, 20% { transform: translateY(0) rotate(0deg); animation-timing-function: cubic-bezier(.3,0,.7,.4); }
+  30% { transform: translateY(-.6px) rotate(-.5deg); animation-timing-function: cubic-bezier(.2,.6,.4,1); }
+  46% { transform: translateY(0px) rotate(0deg); animation-timing-function: cubic-bezier(.3,0,.6,.5); }
+  68% { transform: translateY(-3.4px) rotate(.6deg); animation-timing-function: cubic-bezier(.4,0,.5,1); }
+  86% { transform: translateY(-.8px) rotate(.2deg); animation-timing-function: cubic-bezier(.3,0,.4,1); }
+  100% { transform: translateY(0) rotate(0deg); }
+}
+
 
 @media (max-width: 700px) {
   .page-loader__bird { width: 94px; height: 100px; }
@@ -236,7 +302,8 @@ figcaption { margin-top: 10px; font-size: .78rem; text-transform: uppercase; let
   .container { width: min(100% - 28px, 1180px); }
   .section { padding: 74px 0; }
   .site-header { background: rgba(255,255,255,.97); }
-  .menu-toggle { display: block; }
+  .menu-toggle { display: flex; }
+  .main-nav--open .menu-toggle { color: var(--ink); }
   .main-nav { position: absolute; top: 76px; left: 0; right: 0; display: none; padding: 18px 14px 22px; background: rgba(255,255,255,.98); border-bottom: 1px solid var(--line); flex-direction: column; align-items: stretch; gap: 6px; box-shadow: 0 25px 45px rgba(16,17,20,.08); }
   .main-nav--open { display: flex; }
   .main-nav a { padding: 12px 10px; }
@@ -265,6 +332,6 @@ figcaption { margin-top: 10px; font-size: .78rem; text-transform: uppercase; let
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
-  .page-loader, .page-loader__bird, .page-loader__base, .page-loader__wing { animation: none !important; transition: none !important; }
-  .page-loader__bird { opacity: 1; transform: none; }
+  .page-loader, .page-loader__bird, .page-loader__lift, .page-loader__core, .page-loader__wing { animation: none !important; transition: none !important; }
+  .page-loader__bird, .page-loader__lift { opacity: 1; transform: none; }
 }
