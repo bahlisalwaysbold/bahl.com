@@ -6,7 +6,7 @@ export type Division = {
   description: string;
   accent: string;
   active: boolean;
-  icon: 'studio' | 'engineering' | 'digital';
+  icon?: string;
   services: Service[];
 };
 

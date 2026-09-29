@@ -8,3 +8,6 @@ npm-debug.log*
 
 # Local lead capture fallback (dev only)
 /data/leads.json
+
+# TypeScript incremental build cache
+*.tsbuildinfo

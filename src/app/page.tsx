@@ -4,6 +4,8 @@ import SectionHeading from './components/SectionHeading';
 import DivisionCard from './components/DivisionCard';
 import ProjectCard from './components/ProjectCard';
 import WhatsAppButton from './components/WhatsAppButton';
+import BahlFlap from './components/BahlFlap';
+import BahlWordmark from './components/BahlWordmark';
 import { getDivisions, getFeaturedProjects } from '@/lib/cms';
 
 export default async function HomePage() {
@@ -14,28 +16,39 @@ export default async function HomePage() {
       <section className="hero section-dark">
         <div className="container hero-grid">
           <div className="hero-copy">
-            <p className="eyebrow eyebrow--light">One brand. Many possibilities.</p>
-            <h1>Design the space. Detail the structure. Build the system.</h1>
-            <p className="hero-lead">Bahl is a growing design and technical company helping people and businesses move from idea to something useful, buildable and ready to act on.</p>
-            <div className="hero-actions"><Link className="btn btn--light" href="/contact">Request a consultation <span aria-hidden="true">↗</span></Link><WhatsAppButton label="WhatsApp" className="btn--dark-ghost" /></div>
+            <p className="eyebrow eyebrow--light">All for one. One for all.</p>
+            <h1>One Bahl for every idea worth building.</h1>
+            <p className="hero-lead">Design, structural detailing and digital systems brought together under one growing brand — so you can move from idea to a clear next step without changing teams at every turn.</p>
+            <div className="hero-actions">
+              <Link className="btn btn--light" href="/contact">Request a consultation <span aria-hidden="true">↗</span></Link>
+              <WhatsAppButton label="WhatsApp" className="btn--dark-ghost" />
+            </div>
             <div className="trust-row"><span>01 / Clarity</span><span>02 / Proof</span><span>03 / Action</span></div>
           </div>
-          <div className="hero-media" aria-label="Abstract Bahl brand mark and project surface">
-            <div className="hero-orbit hero-orbit--one" /><div className="hero-orbit hero-orbit--two" />
-            <div className="hero-brand-card"><div className="hero-brand-mark">B</div><span>BAHL</span><small>Design · Engineering · Digital</small></div>
-            <div className="hero-photo"><Image src="https://images.unsplash.com/photo-1511818966892-d7d671e672a2?auto=format&fit=crop&w=1400&q=82" alt="Modern architectural structure" fill priority sizes="(max-width: 900px) 100vw, 50vw" className="cover-image" /></div>
+          <div className="hero-media" aria-label="BAHL brand mark and project image">
+            <div className="hero-orbit hero-orbit--one" />
+            <div className="hero-orbit hero-orbit--two" />
+            <div className="hero-logo-stage">
+              <div className="hero-flight-mark"><BahlFlap /></div>
+              <div className="hero-logo-caption"><BahlWordmark /><span>ALL FOR ONE&nbsp;&nbsp;/&nbsp;&nbsp;ONE FOR ALL</span></div>
+            </div>
+            <div className="hero-photo">
+              <Image src="https://images.unsplash.com/photo-1511818966892-d7d671e672a2?auto=format&fit=crop&w=1400&q=82" alt="Modern architectural structure" fill priority sizes="(max-width: 900px) 100vw, 50vw" className="cover-image" />
+            </div>
           </div>
         </div>
       </section>
 
       <section className="section" aria-labelledby="divisions-title">
-        <div className="container"><SectionHeading eyebrow="Divisions" title="Different disciplines. One Bahl standard." body="Start with the branch you need. Each division shares the same commitment to clarity, useful thinking and finished work." />
+        <div className="container">
+          <SectionHeading eyebrow="Divisions" title="Different disciplines. One Bahl standard." body="Start with the branch you need. Each division shares the same commitment to clarity, useful thinking and finished work." />
           <div className="division-grid">{divisions.map((division) => <DivisionCard key={division.id} division={division} />)}</div>
         </div>
       </section>
 
       <section className="section section-muted" aria-labelledby="featured-title">
-        <div className="container"><div className="split-heading"><SectionHeading eyebrow="Selected work" title="Proof before promises." body="A small launch portfolio with the detail a potential client actually needs to see." /><Link className="text-link" href="/portfolio">See all projects <span aria-hidden="true">→</span></Link></div>
+        <div className="container">
+          <div className="split-heading"><SectionHeading eyebrow="Selected work" title="Proof before promises." body="A small launch portfolio with the detail a potential client actually needs to see." /><Link className="text-link" href="/portfolio">See all projects <span aria-hidden="true">→</span></Link></div>
           <div className="project-grid">{featured.map((project) => <ProjectCard key={project.id} project={project} />)}</div>
         </div>
       </section>

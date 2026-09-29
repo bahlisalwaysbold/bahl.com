@@ -2,12 +2,18 @@
 
 A Next.js 16 + TypeScript, mobile-first company site for BAHL, built around reusable divisions and projects. The launch version is intentionally lean: no shop, logins, 3D, or heavy motion.
 
+## New BAHL identity integration
+
+This version uses the new BAHL bird logo system supplied for the project. The logo SVGs live in `public/logo/` and the site favicon uses the standalone BAHL icon.
+
+The home hero includes a one-time page-load wing-flap intro built from the same BAHL bird mark. The motion settles into the exact static logo. Users who prefer reduced motion get the static mark instead.
+
 ## What is included
 
 - Home, About, Divisions overview, reusable division pages, Portfolio, project detail pages, and Contact.
 - Filterable portfolio by division, project type, and year.
 - Accessible keyboard navigation, skip link, visible focus states, semantic landmarks, reduced-motion support, alt text, and non-hover fallbacks.
-- SEO metadata, Open Graph basics, `sitemap.xml`, `robots.txt`, and JSON-LD LocalBusiness/Organization markup.
+- SEO metadata, Open Graph basics, `sitemap.xml`, `robots.txt`, and JSON-LD ProfessionalService markup.
 - Event tracking for CTA clicks, WhatsApp taps, filter usage, and contact submissions through Google Analytics when `NEXT_PUBLIC_GA_ID` is configured.
 - Contact API with honeypot spam protection plus optional Resend email delivery and a generic lead webhook for Google Sheets/Make/n8n/Zapier-style workflows.
 - Local demo content is used by default. The content layer is isolated in `src/lib/cms.ts` so Sanity can replace it without changing page components.
@@ -24,7 +30,7 @@ Open http://localhost:3000.
 
 ## Turn on Sanity
 
-The current frontend is intentionally runnable without credentials. For production content editing, create a Sanity project, set the environment variables above, and replace the local content provider in `src/lib/cms.ts` with the Sanity client/queries. Sanity's official `next-sanity` toolkit supports Next.js App Router, typed GROQ queries, visual editing, and live content. See the current official guide: https://www.sanity.io/docs/nextjs
+The current frontend is intentionally runnable without credentials. For production content editing, create a Sanity project, set the environment variables above, and replace the local content provider in `src/lib/cms.ts` with the Sanity client/queries. Sanity's official `next-sanity` toolkit supports Next.js App Router, typed GROQ queries, visual editing, and live content.
 
 ## Configure contact delivery
 
@@ -36,8 +42,6 @@ Set:
 - `LEAD_WEBHOOK_URL`
 
 The API route accepts: name, phone, email, service, projectType, location, budget, message, and division. The hidden honeypot field is `website`.
-
-For a lead sheet, point `LEAD_WEBHOOK_URL` at a trusted webhook/Apps Script/automation endpoint that appends one row to Google Sheets. Keep the webhook URL server-side.
 
 ## WhatsApp
 

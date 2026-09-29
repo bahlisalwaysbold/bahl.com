@@ -2,35 +2,33 @@ import Link from 'next/link';
 
 type Props = { compact?: boolean; light?: boolean };
 
-function Mark({ light = false }: { light?: boolean }) {
-  const fill = light ? '#f7f5ef' : '#101114';
-  const cut = light ? '#101114' : '#f7f5ef';
-  return (
-    <svg aria-hidden="true" viewBox="0 0 56 64" className="logo-mark">
-      <path fill={fill} d="M9 6 28 6l13 12-13 12 14 12-14 16H9l15-16L9 20 24 6H9Z" />
-      <path fill={cut} d="M20 14h8l7 6-7 7h-8l7-7-7-6Zm0 23h8l8 7-8 9h-8l8-9-8-7Z" />
-      <path fill="#ff8a00" d="m25 28 8 4-8 4Z" />
-    </svg>
-  );
-}
+const birdPath = 'M 45.80 16.10 L 67.10 42.20 L 88.60 50.30 L 94.40 53.40 L 98.60 57.80 L 98.70 63.30 L 95.40 58.10 L 90.30 53.80 L 52.80 39.50 L 52.80 40.90 L 67.50 58.10 L 83.60 63.60 L 70.80 87.40 L 71.10 89.20 L 95.90 73.10 L 102.00 66.60 L 115.40 47.90 L 124.70 41.40 L 124.10 39.80 L 118.50 38.50 L 108.20 39.80 L 98.70 45.10 L 101.60 50.70 L 85.40 36.70 L 47.30 15.90 Z';
 
 export default function Logo({ compact = false, light = false }: Props) {
+  const src = compact
+    ? light ? '/logo/BAHL_Icon_White.svg' : '/logo/BAHL_Icon_Black.svg'
+    : light ? '/logo/BAHL_Primary_White.svg' : '/logo/BAHL_Primary_Black.svg';
+
   return (
-    <Link href="/" className={`brand-lockup ${light ? 'brand-lockup--light' : ''}`} aria-label="Bahl home">
-      <Mark light={light} />
-      {!compact && <span className="brand-word">BAHL</span>}
+    <Link href="/" className={`brand-lockup ${compact ? 'brand-lockup--compact' : ''} ${light ? 'brand-lockup--light' : ''}`} aria-label="Bahl home">
+      <img
+        src={src}
+        alt="BAHL"
+        className="brand-logo-image"
+        width={compact ? 48 : 142}
+        height={compact ? 40 : 52}
+        draggable={false}
+      />
     </Link>
   );
 }
 
-export function DivisionMark({ type, accent }: { type: 'studio' | 'engineering' | 'digital'; accent: string }) {
+export function DivisionMark({ accent }: { type?: string; accent: string }) {
   return (
     <span className="division-mark" style={{ ['--accent' as string]: accent }} aria-hidden="true">
-      <span className={`division-icon division-icon--${type}`}>
-        {type === 'studio' && <svg viewBox="0 0 32 32"><rect x="7" y="7" width="18" height="18" rx="2" fill="none" stroke="currentColor" strokeWidth="2"/><path d="M11 21V11h10" fill="none" stroke="currentColor" strokeWidth="2"/></svg>}
-        {type === 'engineering' && <svg viewBox="0 0 32 32"><path d="M16 5 25 10v12l-9 5-9-5V10l9-5Z" fill="none" stroke="currentColor" strokeWidth="2"/><path d="m12 16 4 4 7-8" fill="none" stroke="currentColor" strokeWidth="2"/></svg>}
-        {type === 'digital' && <svg viewBox="0 0 32 32"><circle cx="8" cy="16" r="3" fill="none" stroke="currentColor" strokeWidth="2"/><circle cx="24" cy="9" r="3" fill="none" stroke="currentColor" strokeWidth="2"/><circle cx="24" cy="23" r="3" fill="none" stroke="currentColor" strokeWidth="2"/><path d="m11 15 10-5m-10 7 10 5" fill="none" stroke="currentColor" strokeWidth="2"/></svg>}
-      </span>
+      <svg className="division-bird" viewBox="35 4 100 108" focusable="false">
+        <path d={birdPath} fill="currentColor" />
+      </svg>
     </span>
   );
 }
