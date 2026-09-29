@@ -16,7 +16,7 @@ export default async function HomePage() {
       <section className="hero section-dark">
         <div className="container hero-grid">
           <div className="hero-copy">
-            <p className="eyebrow eyebrow--light">All for one. One for all.</p>
+            <p className="eyebrow eyebrow--light">Design, engineering and digital, under one roof.</p>
             <h1>One Bahl for every idea worth building.</h1>
             <p className="hero-lead">Design, structural detailing and digital systems brought together under one growing brand — so you can move from idea to a clear next step without changing teams at every turn.</p>
             <div className="hero-actions">
@@ -30,7 +30,7 @@ export default async function HomePage() {
             <div className="hero-orbit hero-orbit--two" />
             <div className="hero-logo-stage">
               <div className="hero-flight-mark"><BahlFlap /></div>
-              <div className="hero-logo-caption"><BahlWordmark /><span>ALL FOR ONE&nbsp;&nbsp;/&nbsp;&nbsp;ONE FOR ALL</span></div>
+              <div className="hero-logo-caption"><BahlWordmark /><span>DESIGN, ENGINEERING AND DIGITAL&nbsp;&nbsp;/&nbsp;&nbsp;UNDER ONE ROOF</span></div>
             </div>
             <div className="hero-photo">
               <Image src="https://images.unsplash.com/photo-1511818966892-d7d671e672a2?auto=format&fit=crop&w=1400&q=82" alt="Modern architectural structure" fill priority sizes="(max-width: 900px) 100vw, 50vw" className="cover-image" />

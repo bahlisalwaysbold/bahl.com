@@ -6,10 +6,10 @@ import Analytics from './components/Analytics';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://bahl.com.ng'),
-  title: { default: 'Bahl — All for one. One for all.', template: '%s | Bahl' },
-  description: 'Bahl brings design, structural detailing and digital systems together under one growing brand — all for one, one for all.',
+  title: { default: 'Bahl — Design, engineering and digital, under one roof.', template: '%s | Bahl' },
+  description: 'Bahl — Design, engineering and digital, under one roof.',
   keywords: ['Bahl', 'interior design Abuja', 'structural detailing Nigeria', 'technical drawings', 'websites Abuja', 'digital systems Nigeria'],
-  openGraph: { title: 'Bahl — All for one. One for all.', description: 'One brand. Design, engineering and digital systems built for real projects.', type: 'website', url: 'https://bahl.com.ng' },
+  openGraph: { title: 'Bahl — Design, engineering and digital, under one roof.', description: 'Bahl — Design, engineering and digital, under one roof.', type: 'website', url: 'https://bahl.com.ng' },
   icons: { icon: '/icon.svg' },
 };
 
