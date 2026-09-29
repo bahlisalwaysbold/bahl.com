@@ -4,7 +4,7 @@ import SectionHeading from './components/SectionHeading';
 import DivisionCard from './components/DivisionCard';
 import ProjectCard from './components/ProjectCard';
 import WhatsAppButton from './components/WhatsAppButton';
-import BahlFlap from './components/BahlFlap';
+import BahlBird from './components/BahlBird';
 import BahlWordmark from './components/BahlWordmark';
 import { getDivisions, getFeaturedProjects } from '@/lib/cms';
 
@@ -29,7 +29,7 @@ export default async function HomePage() {
             <div className="hero-orbit hero-orbit--one" />
             <div className="hero-orbit hero-orbit--two" />
             <div className="hero-logo-stage">
-              <div className="hero-flight-mark"><BahlFlap /></div>
+              <div className="hero-flight-mark"><BahlBird className="bahl-bird" /></div>
               <div className="hero-logo-caption"><BahlWordmark /><span>DESIGN, ENGINEERING AND DIGITAL&nbsp;&nbsp;/&nbsp;&nbsp;UNDER ONE ROOF</span></div>
             </div>
             <div className="hero-photo">

@@ -3,6 +3,7 @@ import './globals.css';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Analytics from './components/Analytics';
+import BahlLoader from './components/BahlLoader';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://bahl.com.ng'),
@@ -29,6 +30,10 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     <html lang="en">
       <body>
         <a className="skip-link" href="#main-content">Skip to content</a>
+        <noscript>
+          <style>{`.page-loader { display: none !important; }`}</style>
+        </noscript>
+        <BahlLoader />
         <Header />
         <main id="main-content">{children}</main>
         <Footer />

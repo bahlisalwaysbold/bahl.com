@@ -1,0 +1,12 @@
+export const BAHL_BIRD_PATH =
+  'M 45.80 16.10 L 67.10 42.20 L 88.60 50.30 L 94.40 53.40 L 98.60 57.80 L 98.70 63.30 L 95.40 58.10 L 90.30 53.80 L 52.80 39.50 L 52.80 40.90 L 67.50 58.10 L 83.60 63.60 L 70.80 87.40 L 71.10 89.20 L 95.90 73.10 L 102.00 66.60 L 115.40 47.90 L 124.70 41.40 L 124.10 39.80 L 118.50 38.50 L 108.20 39.80 L 98.70 45.10 L 101.60 50.70 L 85.40 36.70 L 47.30 15.90 Z';
+
+export const BAHL_BIRD_VIEWBOX = '35 4 100 108';
+
+export default function BahlBird({ className }: { className?: string }) {
+  return (
+    <svg className={className} viewBox={BAHL_BIRD_VIEWBOX} aria-hidden="true" focusable="false">
+      <path d={BAHL_BIRD_PATH} fill="currentColor" />
+    </svg>
+  );
+}
