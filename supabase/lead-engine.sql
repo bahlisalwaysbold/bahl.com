@@ -69,6 +69,7 @@ create index if not exists leads_status_idx on public.leads(status);
 create index if not exists leads_score_idx on public.leads(lead_score desc);
 create index if not exists lead_events_lead_idx on public.lead_events(lead_id, created_at desc);
 create index if not exists followups_due_idx on public.followups(status, due_at);
+create index if not exists quotes_lead_idx on public.quotes(lead_id, created_at desc);
 
 create or replace function public.touch_lead_updated_at()
 returns trigger language plpgsql as $$
@@ -92,3 +93,6 @@ on conflict (id) do nothing;
 
 -- No anonymous/authenticated policies are created intentionally.
 -- The Next.js server accesses these tables with the service-role key.
+-- Lead pipeline statuses used by the dashboard:
+-- new -> qualified -> contacted -> quoted -> won/lost.
+-- Quotes and realized revenue are stored separately for commercial reporting.
