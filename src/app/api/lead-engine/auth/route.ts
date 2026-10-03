@@ -37,7 +37,3 @@ export async function DELETE() {
   response.cookies.set(cookieName, '', { httpOnly: true, expires: new Date(0), path: '/' });
   return response;
 }
-
-export function verifyDashboardCookie(value: string | undefined) {
-  return Boolean(value && process.env.LEAD_DASHBOARD_SECRET && valid(value));
-}
