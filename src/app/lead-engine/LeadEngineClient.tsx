@@ -52,22 +52,36 @@ export default function LeadEngineClient() {
     }));
   }
 
+  function validateForm() {
+    const checks: Array<[boolean, string]> = [
+      [Boolean(form.name.trim()), 'Please enter your name.'],
+      [Boolean(form.phone.trim()), 'Please enter your phone / WhatsApp number.'],
+      [Boolean(form.role), 'Please select what you are: engineer, contractor, architect, developer / builder, or other.'],
+      [Boolean(form.location.trim()), 'Please enter the project location.'],
+      [Boolean(form.projectType), 'Please select a project type.'],
+      [Number.isFinite(form.floors) && form.floors >= 1 && form.floors <= 60, 'Please enter a valid number of floors.'],
+      [form.drawingNeeds.length > 0, 'Select at least one drawing or detailing need.'],
+      [Boolean(form.deadline), 'Please choose when the project is required.'],
+      [form.notes.trim().length >= 15, 'Please add at least 15 characters to the project notes.'],
+      [form.serviceConsent, 'Please confirm that Bahl may use your details to respond to this enquiry.'],
+    ];
+    return checks.find(([valid]) => !valid)?.[1] || '';
+  }
+
   async function submit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    setStatus('sending');
+    setStatus('idle');
     setError('');
-    trackEvent('lead_engine_tool_complete', { drawing_count: form.drawingNeeds.length });
 
-    if (!form.drawingNeeds.length) {
+    const validationError = validateForm();
+    if (validationError) {
       setStatus('error');
-      setError('Select at least one drawing or detailing need.');
+      setError(validationError);
       return;
     }
-    if (!form.serviceConsent) {
-      setStatus('error');
-      setError('Please confirm that Bahl may use your details to respond to this enquiry.');
-      return;
-    }
+
+    setStatus('sending');
+    trackEvent('lead_engine_tool_complete', { drawing_count: form.drawingNeeds.length });
 
     try {
       const data = new FormData();
@@ -173,7 +187,7 @@ export default function LeadEngineClient() {
       <section className={styles.workspace}>
         <div className={styles.shell}>
           <div className={styles.workspaceGrid}>
-            <form className={styles.form} onSubmit={submit} noValidate>
+            <form className={styles.form} onSubmit={submit}>
               <div className={styles.sectionHead}><span>01</span><div><h2>Project context</h2><p>Just enough information for a useful first review.</p></div></div>
               <div className={styles.grid}>
                 <label>Your name<input required value={form.name} onChange={(e) => update('name', e.target.value)} autoComplete="name" /></label>
