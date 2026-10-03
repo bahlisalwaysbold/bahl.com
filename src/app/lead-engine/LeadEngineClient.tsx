@@ -62,7 +62,7 @@ export default function LeadEngineClient() {
       [Number.isFinite(form.floors) && form.floors >= 1 && form.floors <= 60, 'Please enter a valid number of floors.'],
       [form.drawingNeeds.length > 0, 'Select at least one drawing or detailing need.'],
       [Boolean(form.deadline), 'Please choose when the project is required.'],
-      [form.notes.trim().length >= 15, 'Please add at least 15 characters to the project notes.'],
+      [(form.notes ?? '').trim().length >= 15, 'Please add at least 15 characters to the project notes.'],
       [form.serviceConsent, 'Please confirm that Bahl may use your details to respond to this enquiry.'],
     ];
     return checks.find(([valid]) => !valid)?.[1] || '';
