@@ -39,7 +39,7 @@ function parseForm(form: FormData): LeadInput | null {
     marketingOptIn: text(form, 'marketingOptIn') === 'true',
   };
   if (!input.name || !input.phone || !input.role || !input.projectType || !input.location ||
-      input.notes.length < 15 || !input.deadline || !input.drawingNeeds.length || !input.serviceConsent ||
+      !input.notes || input.notes.length < 15 || !input.deadline || !input.drawingNeeds.length || !input.serviceConsent ||
       !Number.isFinite(floors) || floors < 1 || floors > 60) return null;
   if (input.email && !emailPattern.test(input.email)) return null;
   return input;

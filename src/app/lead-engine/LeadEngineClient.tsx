@@ -1,6 +1,7 @@
 'use client';
 
-import { useEffect, useMemo, useState } from 'react';
+import Link from 'next/link';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { trackEvent } from '@/lib/analytics';
 import { WHATSAPP_NUMBER } from '@/lib/site';
 import { buildWhatsAppUrl, estimateScope, leadEngineConfig, type LeadInput } from '@/lib/lead-engine/config';
@@ -14,6 +15,7 @@ const initial: LeadInput = {
 
 export default function LeadEngineClient() {
   const [form, setForm] = useState<LeadInput>(initial);
+  const attribution = useRef({ source: 'direct', referrer: '' });
   const [file, setFile] = useState<File | null>(null);
   const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
   const [error, setError] = useState('');
@@ -22,12 +24,9 @@ export default function LeadEngineClient() {
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
-    setForm((current) => ({
-      ...current,
-      source: params.get('utm_source') || params.get('source') || 'direct',
-      referrer: document.referrer || '',
-    }));
-    trackEvent('lead_engine_view', { source: params.get('utm_source') || params.get('source') || 'direct' });
+    const source = params.get('utm_source') || params.get('source') || 'direct';
+    attribution.current = { source, referrer: document.referrer || '' };
+    trackEvent('lead_engine_view', { source });
   }, []);
 
   const estimate = useMemo(
@@ -84,8 +83,8 @@ export default function LeadEngineClient() {
       data.append('location', form.location);
       data.append('budget', form.budget || '');
       data.append('notes', form.notes || '');
-      data.append('source', form.source || 'direct');
-      data.append('referrer', form.referrer || '');
+      data.append('source', attribution.current.source);
+      data.append('referrer', attribution.current.referrer);
       data.append('serviceConsent', String(form.serviceConsent));
       data.append('marketingOptIn', String(form.marketingOptIn));
       if (file) data.append('file', file);
@@ -101,7 +100,7 @@ export default function LeadEngineClient() {
       setStatus('success');
       trackEvent('lead_engine_submit', {
         lead_score: Number(payload.leadScore || 0),
-        source: form.source || 'direct',
+        source: attribution.current.source,
       });
     } catch (err) {
       setStatus('error');
@@ -130,8 +129,8 @@ export default function LeadEngineClient() {
               <div className={styles.resultActions}>
                 {whatsappUrl && <a className={styles.primaryButton} href={whatsappUrl} target="_blank" rel="noreferrer"
                   onClick={() => trackEvent('lead_engine_whatsapp_tap', { reference })}>Continue on WhatsApp →</a>}
-                <a className={styles.secondaryButton} href="/lead-engine">Submit another project</a>
-                <a className={styles.secondaryButton} href="/">Back to Bahl</a>
+                <Link className={styles.secondaryButton} href="/lead-engine">Submit another project</Link>
+                <Link className={styles.secondaryButton} href="/">Back to Bahl</Link>
               </div>
               <p className={styles.disclaimer}>
                 This is a preliminary scope planner, not a structural design calculation or approval. Final technical

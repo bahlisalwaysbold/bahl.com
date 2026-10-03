@@ -1,21 +1,11 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { createHmac, timingSafeEqual } from 'node:crypto';
+import { createHmac } from 'node:crypto';
 
 const cookieName = 'bahl_lead_engine_session';
 const ttlMs = 8 * 60 * 60 * 1000;
 
 function sign(value: string) {
   return createHmac('sha256', process.env.LEAD_DASHBOARD_SECRET || 'missing-secret').update(value).digest('hex');
-}
-
-function valid(value: string) {
-  const parts = value.split('.');
-  const timestamp = parts[0];
-  const signature = parts[1];
-  const age = Date.now() - Number(timestamp);
-  if (!timestamp || !signature || !Number.isFinite(age) || age < 0 || age > ttlMs) return false;
-  const expected = sign(timestamp);
-  try { return timingSafeEqual(Buffer.from(signature), Buffer.from(expected)); } catch { return false; }
 }
 
 export async function POST(request: NextRequest) {

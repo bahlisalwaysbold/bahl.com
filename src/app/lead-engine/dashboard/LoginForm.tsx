@@ -1,8 +1,10 @@
 'use client';
 
+import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 
 export default function LoginForm() {
+  const router = useRouter();
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [busy, setBusy] = useState(false);
@@ -19,7 +21,7 @@ export default function LoginForm() {
       });
       const data = await response.json();
       if (!response.ok) throw new Error(data.error || 'Unable to sign in.');
-      window.location.href = '/lead-engine/dashboard';
+      router.replace('/lead-engine/dashboard');
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Unable to sign in.');
     } finally {
