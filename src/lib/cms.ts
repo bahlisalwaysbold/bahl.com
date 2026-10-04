@@ -2,6 +2,27 @@ import { divisions as localDivisions, projects as localProjects, team, testimoni
 import type { Division, Project } from '@/types/content';
 import { sanityClient, sanityConfigured } from './sanity';
 
+const branchServices = {
+  studio: [
+    { id: 'studio-1', title: 'Interior Design', description: 'Concepts, space planning, finishes and room-by-room design direction for homes and commercial spaces.' },
+    { id: 'studio-2', title: 'Renovation & Space Planning', description: 'Upgrade existing spaces with a clear scope, coordinated layouts and a practical finish strategy.' },
+    { id: 'studio-3', title: 'Solar Installations', description: 'Practical solar power solutions planned around the energy needs and use of each property.' },
+    { id: 'studio-4', title: 'Smart Home Solutions', description: 'Connected lighting, controls, security and automation that make spaces more comfortable and intelligent.' },
+  ],
+  engineering: [
+    { id: 'eng-1', title: 'Structural Detailing', description: 'Detailed reinforcement, framing and connection information prepared for coordinated project delivery.' },
+    { id: 'eng-2', title: 'Technical Drawings', description: 'Clean technical documentation with clear dimensions, notes and drawing conventions.' },
+    { id: 'eng-3', title: 'Drawing Coordination', description: 'Coordinate disciplines, revisions and references so the drawing set tells one consistent story.' },
+  ],
+  digital: [
+    { id: 'dig-1', title: 'Software & SaaS', description: 'Web applications, custom software and scalable SaaS products built around real business problems.' },
+    { id: 'dig-2', title: 'AI & Business Intelligence', description: 'AI systems, data dashboards and business intelligence tools that turn information into better decisions.' },
+    { id: 'dig-3', title: 'E-commerce & Booking Systems', description: 'Ordering, e-commerce, booking and customer-facing systems that turn interest into action.' },
+    { id: 'dig-4', title: 'CRM & Automation', description: 'CRM systems, workflows and automation that reduce manual work and improve how businesses operate.' },
+    { id: 'dig-5', title: 'Websites & Digital Products', description: 'Conversion-focused websites and digital products that make a business easier to discover, trust and use.' },
+  ],
+} as const;
+
 const branchIdentity = {
   studio: {
     title: 'Bahl Interiors & Smart Living',
@@ -25,7 +46,8 @@ const branchIdentity = {
 
 function normalizeDivision(item: Division): Division {
   const identity = branchIdentity[item.slug as keyof typeof branchIdentity];
-  return identity ? { ...item, ...identity } : item;
+  const services = branchServices[item.slug as keyof typeof branchServices];
+  return identity ? { ...item, ...identity, ...(services ? { services: [...services] } : {}) } : item;
 }
 
 export async function getDivisions(): Promise<Division[]> {
