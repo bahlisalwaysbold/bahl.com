@@ -23,11 +23,12 @@ export default async function HomePage() {
         <div className="container group-hero__inner">
           <div className="group-hero__copy">
             <div className="group-hero__kicker"><span className="eyebrow eyebrow--light">BAHL / multidisciplinary company</span><span className="group-hero__rule" /></div>
-            <h1>Spaces.<br />Structures.<br />Systems.</h1>
-            <p className="group-hero__lead">
-              Bahl brings together three businesses under one standard: we transform spaces, deliver technical engineering work,
-              and plan and build the systems and digital products that move ideas into the market.
-            </p>
+            <h1 aria-label="Spaces. Structures. Systems.">
+              <span className="hero-word hero-word--spaces">Spaces.</span><br />
+              <span className="hero-word hero-word--structures">Structures.</span><br />
+              <span className="hero-word hero-word--systems">Systems.</span>
+            </h1>
+            <p className="group-hero__lead">Design spaces. Detail structures. Build business systems.</p>
             <div className="hero-actions">
               <Button variant="light" href="/businesses" arrow>See what Bahl does</Button>
               <WhatsAppButton label="Talk to Bahl" variant="dark" size="sm" location="home_hero" />
@@ -71,10 +72,7 @@ export default async function HomePage() {
               <h2>Different work. One clear place to start.</h2>
             </div>
             <div className="group-intro__body">
-              <p>
-                A client should not have to decode Bahl before deciding to call us. The company is organized into three live
-                branches, each with a clear job and a clear set of capabilities.
-              </p>
+              <p>Three live businesses. Clear jobs. Easy to find.</p>
               <Link className="text-link" href="/businesses">Explore the three businesses <span aria-hidden="true">→</span></Link>
             </div>
           </div>
@@ -84,7 +82,7 @@ export default async function HomePage() {
       <section className="section group-businesses section-muted" aria-labelledby="businesses-title">
         <div className="container">
           <div className="split-heading">
-            <SectionHeading eyebrow="Our businesses" title="Three businesses. One Bahl standard." body="These are the branches Bahl is building around right now. New capabilities can grow underneath them without fragmenting the parent brand." />
+            <SectionHeading eyebrow="Our businesses" title="Pick what you need." body="Three businesses. Three clear jobs." />
             <span className="group-section-number">03 / 03</span>
           </div>
           <div className="group-business-grid">
@@ -111,7 +109,7 @@ export default async function HomePage() {
           <div className="group-connection__heading">
             <p className="eyebrow">Why the structure matters</p>
             <h2>Three branches. One operating mindset.</h2>
-            <p>We keep the businesses distinct so a stranger knows what Bahl does, but connected enough that a real project can move between disciplines without losing context.</p>
+            <p>Separate businesses. Shared thinking.</p>
           </div>
           <div className="group-connection__grid">
             <article><span>01</span><h3>Plan</h3><p>Understand the problem, market, space or project before work starts.</p></article>
@@ -150,7 +148,7 @@ export default async function HomePage() {
             <SectionHeading
               eyebrow="From Bahl"
               title="News, notes and what we're building."
-              body="A lighter way to keep up with Bahl — project thinking, business updates and useful things we learn along the way."
+              body="What we’re building, learning and delivering."
             />
             <Link className="text-link" href="/journal">Open the Bahl Journal <span aria-hidden="true">→</span></Link>
           </div>
@@ -183,7 +181,7 @@ export default async function HomePage() {
             <h2>Bahl is designed to grow without losing its shape.</h2>
           </div>
           <div>
-            <p>We don't create a new branch every time a new capability appears. We put related work where it belongs, build the team around it, and let the parent brand accumulate strength.</p>
+            <p>New capabilities grow inside the right business. The Bahl brand stays easy to understand.</p>
             <Link className="text-link" href="/about">Read the Bahl story <span aria-hidden="true">→</span></Link>
           </div>
         </div>
@@ -193,7 +191,7 @@ export default async function HomePage() {
         <div className="container cta-inner">
           <div>
             <p className="eyebrow eyebrow--light">Start somewhere</p>
-            <h2>Tell us what you are trying to build. We'll route it to the right Bahl branch.</h2>
+            <h2>Tell us what you’re building. We’ll route it.</h2>
           </div>
           <div className="cta-actions">
             <Button variant="light" href="/contact" arrow>Start a conversation</Button>
