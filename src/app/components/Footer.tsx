@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import Logo from './Logo';
 import WhatsAppButton from './WhatsAppButton';
+import SocialLinks from './SocialLinks';
 
 export default function Footer() {
   return (
@@ -9,6 +10,7 @@ export default function Footer() {
         <div>
           <Logo light />
           <p className="footer-copy">Spaces, structures and systems — three businesses under one growing Bahl brand.</p>
+          <SocialLinks label="Follow the build" />
         </div>
         <div>
           <p className="footer-label">Explore</p>

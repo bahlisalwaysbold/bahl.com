@@ -8,6 +8,7 @@ import Button from './components/Button';
 import JournalCard from './components/JournalCard';
 import BahlBird from './components/BahlBird';
 import BahlWordmark from './components/BahlWordmark';
+import SocialLinks from './components/SocialLinks';
 import { getArticles, getDivisions, getFeaturedProjects } from '@/lib/cms';
 
 export default async function HomePage() {
@@ -170,6 +171,19 @@ export default async function HomePage() {
                 <span>{project.title}</span>
               </Link>
             ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="section group-social-strip">
+        <div className="container group-social-strip__inner">
+          <div>
+            <p className="eyebrow">Follow Bahl</p>
+            <h2>See what we’re building.</h2>
+          </div>
+          <div>
+            <p>Projects, behind the scenes, ideas and updates across every Bahl business.</p>
+            <SocialLinks compact label="Follow Bahl" />
           </div>
         </div>
       </section>
