@@ -23,7 +23,11 @@ export default async function HomePage() {
         <div className="container group-hero__inner">
           <div className="group-hero__copy">
             <div className="group-hero__kicker"><span className="eyebrow eyebrow--light">BAHL / multidisciplinary company</span><span className="group-hero__rule" /></div>
-            <h1>Spaces.<br />Structures.<br />Systems.</h1>
+            <h1 aria-label="Spaces. Structures. Systems.">
+              <span className="hero-word hero-word--spaces">Spaces.</span><br />
+              <span className="hero-word hero-word--structures">Structures.</span><br />
+              <span className="hero-word hero-word--systems">Systems.</span>
+            </h1>
             <p className="group-hero__lead">Design spaces. Detail structures. Build business systems.</p>
             <div className="hero-actions">
               <Button variant="light" href="/businesses" arrow>See what Bahl does</Button>
