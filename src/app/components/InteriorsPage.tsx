@@ -38,10 +38,7 @@ export default function InteriorsPage({ division, projects }: { division: Divisi
         <div className="container interiors-hero__content">
           <div className="interiors-hero__eyebrow"><span>Bahl Interiors & Smart Living</span><span>01 / Spaces</span></div>
           <h1>Spaces made to feel right — and work beautifully.</h1>
-          <p>
-            Interior design, renovation, solar and smart-home solutions brought into one practical experience for homes,
-            workspaces and hospitality environments.
-          </p>
+          <p>Design. Renovate. Power. Connect.</p>
           <div className="hero-actions">
             <Button variant="light" href="/contact?division=studio" arrow>Request a consultation</Button>
             <Link className="interiors-hero__link" href="#gallery">See the spaces <span aria-hidden="true">↓</span></Link>
@@ -57,12 +54,9 @@ export default function InteriorsPage({ division, projects }: { division: Divisi
         <div className="container interiors-intro__grid">
           <div>
             <p className="eyebrow">The experience</p>
-            <h2>One conversation from the first sketch to the way the room works at night.</h2>
+            <h2>Make the space look good. Then make it work.</h2>
           </div>
-          <p>
-            A beautiful room is only half the job. We look at how a space is planned, how people move through it, how it
-            is powered and which technology should quietly make life easier.
-          </p>
+          <p>We think about the room, the people, the power and the technology — together.</p>
         </div>
         <div className="container interiors-anchor-nav" aria-label="Interior page sections">
           <a href="#services">Services</a>
@@ -76,8 +70,8 @@ export default function InteriorsPage({ division, projects }: { division: Divisi
         <div className="container">
           <SectionHeading
             eyebrow="What we do"
-            title="Four ways we make a space better."
-            body="The branch stays together because these services often belong in the same project. You can start with one and build from there."
+            title="What we do."
+            body="Four services. One smarter space."
           />
           <div className="interiors-service-grid">
             {division.services.map((service, index) => (
@@ -106,10 +100,7 @@ export default function InteriorsPage({ division, projects }: { division: Divisi
           <div className="interiors-editorial__copy">
             <p className="eyebrow">Design direction</p>
             <h2>We design around people, not just photographs.</h2>
-            <p>
-              Space planning, circulation, lighting, finishes and furniture choices have to make sense together.
-              Our job is to turn a vague “make it better” into decisions that can actually be executed.
-            </p>
+            <p>We turn “make it better” into clear design decisions that can actually be executed.</p>
             <div className="interiors-editorial__points">
               <span>Residential</span>
               <span>Commercial</span>
@@ -136,11 +127,8 @@ export default function InteriorsPage({ division, projects }: { division: Divisi
         <div className="container interiors-smart__grid">
           <div>
             <p className="eyebrow eyebrow--light">Smart living</p>
-            <h2>Power and technology should disappear into the experience.</h2>
-            <p>
-              Solar planning, connected lighting, security, controls and automation can be designed around the space
-              instead of being bolted on after everything else is finished.
-            </p>
+            <h2>Power + tech, without the headache.</h2>
+            <p>Solar, lighting, security and controls planned around the way you actually use the space.</p>
             <div className="interiors-smart__chips">
               <span>Solar installations</span>
               <span>Smart home controls</span>
@@ -163,7 +151,7 @@ export default function InteriorsPage({ division, projects }: { division: Divisi
       <section id="gallery" className="section">
         <div className="container">
           <div className="split-heading">
-            <SectionHeading eyebrow="Gallery" title="A visual diary of spaces, materials and details." body="This is where the page can keep growing as Bahl completes more interiors work. New imagery can be dropped in without changing the experience." />
+            <SectionHeading eyebrow="Gallery" title="See the work." body="Spaces, details and finished moments — all in one place." />
             <span className="eyebrow">Tap any image</span>
           </div>
           <div className="interiors-gallery">
@@ -184,7 +172,7 @@ export default function InteriorsPage({ division, projects }: { division: Divisi
             <h2>Have a space that needs a smarter plan?</h2>
           </div>
           <div>
-            <p>Send us the location, what you want to improve and where you are in the project. We'll take it from there.</p>
+            <p>Send the space. Tell us the problem. We’ll take it from there.</p>
             <div className="hero-actions">
               <Button variant="solid" href="/contact?division=studio" arrow>Request a consultation</Button>
               <Link className="text-link" href="/businesses">See all Bahl businesses <span aria-hidden="true">→</span></Link>
