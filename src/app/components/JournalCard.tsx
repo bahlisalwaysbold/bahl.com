@@ -21,7 +21,7 @@ export default function JournalCard({ article, featured = false }: { article: Ar
           <span aria-hidden="true">↗</span>
         </div>
         <h3>{article.title}</h3>
-        <p>{article.excerpt}</p>
+        <p className="journal-card__excerpt">{article.excerpt}</p>
         <span className="text-link">Read note <span aria-hidden="true">→</span></span>
       </div>
     </Link>
