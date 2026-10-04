@@ -3,47 +3,50 @@ import type { Article, Division, Project, TeamMember, Testimonial } from '@/type
 export const divisions: Division[] = [
   {
     id: 'studio',
-    title: 'Bahl Studio',
+    title: 'Bahl Interiors & Smart Living',
     slug: 'studio',
-    shortDescription: 'Interior and renovation design that makes spaces work beautifully.',
-    description: 'We shape homes, workspaces and hospitality environments through thoughtful planning, material direction and practical renovation design.',
+    shortDescription: 'We transform spaces through interior design, renovation, solar and smart-home solutions.',
+    description: 'We design, improve and equip homes, workspaces and hospitality environments — combining interiors and renovation with practical solar energy and smart-home solutions.',
     accent: '#ff8a00',
     active: true,
     icon: 'studio',
     services: [
-      { id: 'studio-1', title: 'Interior Design', description: 'Concepts, space planning, finishes and room-by-room design direction.' },
-      { id: 'studio-2', title: 'Renovation Design', description: 'Upgrade existing spaces with a clear scope, coordinated drawings and finish strategy.' },
-      { id: 'studio-3', title: 'Space Planning', description: 'Layouts that balance flow, function, furniture and the way people actually use a space.' },
+      { id: 'studio-1', title: 'Interior Design', description: 'Concepts, space planning, finishes and room-by-room design direction for homes and commercial spaces.' },
+      { id: 'studio-2', title: 'Renovation & Space Planning', description: 'Upgrade existing spaces with a clear scope, coordinated layouts and a practical finish strategy.' },
+      { id: 'studio-3', title: 'Solar Installations', description: 'Practical solar power solutions planned around the energy needs and use of each property.' },
+      { id: 'studio-4', title: 'Smart Home Solutions', description: 'Connected lighting, controls, security and automation that make spaces more comfortable and intelligent.' },
     ],
   },
   {
     id: 'engineering',
     title: 'Bahl Engineering',
     slug: 'engineering',
-    shortDescription: 'Structural detailing and technical drawings built for clarity and execution.',
-    description: 'We turn structural and construction information into coordinated drawings that help teams build with fewer surprises.',
+    shortDescription: 'Structural detailing and technical documentation built for clarity and execution.',
+    description: 'We turn structural and construction information into coordinated technical drawings that help engineers, contractors and project teams build with fewer surprises.',
     accent: '#3b82f6',
     active: true,
     icon: 'engineering',
     services: [
-      { id: 'eng-1', title: 'Structural Detailing', description: 'Detailed reinforcement, framing and connection information prepared for site use.' },
+      { id: 'eng-1', title: 'Structural Detailing', description: 'Detailed reinforcement, framing and connection information prepared for coordinated project delivery.' },
       { id: 'eng-2', title: 'Technical Drawings', description: 'Clean technical documentation with clear dimensions, notes and drawing conventions.' },
-      { id: 'eng-3', title: 'Drawing Coordination', description: 'Coordinate disciplines early so the set tells one consistent story.' },
+      { id: 'eng-3', title: 'Drawing Coordination', description: 'Coordinate disciplines, revisions and references so the drawing set tells one consistent story.' },
     ],
   },
   {
     id: 'digital',
-    title: 'Bahl Digital',
+    title: 'Bahl Market Planning & Development',
     slug: 'digital',
-    shortDescription: 'Websites and online systems that help businesses sell, book and operate.',
-    description: 'We build fast websites and focused digital systems for businesses that want fewer manual steps and more direct customer action.',
+    shortDescription: 'We plan, build and develop business systems, software and digital products that move ideas into the market.',
+    description: 'We help businesses turn market needs into useful products and operating systems — from websites and software to SaaS, AI, business intelligence, commerce, CRM and automation.',
     accent: '#10b981',
     active: true,
     icon: 'digital',
     services: [
-      { id: 'dig-1', title: 'Business Websites', description: 'Responsive websites designed to build trust and turn visits into enquiries.' },
-      { id: 'dig-2', title: 'Ordering Systems', description: 'Simple online ordering experiences that reduce friction from discovery to checkout.' },
-      { id: 'dig-3', title: 'Booking Systems', description: 'Booking flows that make availability, intake and follow-up easier to manage.' },
+      { id: 'dig-1', title: 'Software & SaaS', description: 'Web applications, custom software and scalable SaaS products built around real business problems.' },
+      { id: 'dig-2', title: 'AI & Business Intelligence', description: 'AI systems, data dashboards and business intelligence tools that turn information into better decisions.' },
+      { id: 'dig-3', title: 'E-commerce & Booking Systems', description: 'Ordering, e-commerce, booking and customer-facing systems that turn interest into action.' },
+      { id: 'dig-4', title: 'CRM & Automation', description: 'CRM systems, workflows and automation that reduce manual work and improve how businesses operate.' },
+      { id: 'dig-5', title: 'Websites & Digital Products', description: 'Conversion-focused websites and digital products that make a business easier to discover, trust and use.' },
     ],
   },
 ];
@@ -110,5 +113,5 @@ export const testimonials: Testimonial[] = [
 export const articles: Article[] = [];
 
 export const team: TeamMember[] = [
-  { id: 'tm1', name: 'Bahl Team', role: 'Design + Technical + Digital', bio: 'A practical multidisciplinary team built around design thinking, technical clarity and useful digital systems.' },
+  { id: 'tm1', name: 'Bahl Team', role: 'Interiors + Engineering + Market Planning & Development', bio: 'A practical multidisciplinary team built around design thinking, technical clarity and useful business and digital systems.' },
 ];
