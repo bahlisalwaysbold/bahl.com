@@ -8,11 +8,11 @@ export default function Footer() {
       <div className="container footer-grid">
         <div>
           <Logo light />
-          <p className="footer-copy">Design, engineering and digital systems under one growing Bahl brand.</p>
+          <p className="footer-copy">Spaces, structures and systems — three businesses under one growing Bahl brand.</p>
         </div>
         <div>
           <p className="footer-label">Explore</p>
-          <div className="footer-links"><Link href="/about">About</Link><Link href="/divisions">Divisions</Link><Link href="/portfolio">Portfolio</Link><Link href="/contact">Contact</Link></div>
+          <div className="footer-links"><Link href="/about">About</Link><Link href="/divisions">What we do</Link><Link href="/portfolio">Work</Link><Link href="/contact">Contact</Link></div>
         </div>
         <div>
           <p className="footer-label">Contact</p>

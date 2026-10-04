@@ -7,10 +7,10 @@ import BahlLoader from './components/BahlLoader';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://bahl.com.ng'),
-  title: { default: 'Bahl — Design, engineering and digital, under one roof.', template: '%s | Bahl' },
-  description: 'Bahl — Design, engineering and digital, under one roof.',
-  keywords: ['Bahl', 'interior design Abuja', 'structural detailing Nigeria', 'technical drawings', 'websites Abuja', 'digital systems Nigeria'],
-  openGraph: { title: 'Bahl — Design, engineering and digital, under one roof.', description: 'Bahl — Design, engineering and digital, under one roof.', type: 'website', url: 'https://bahl.com.ng' },
+  title: { default: 'Bahl — Spaces, Structures and Systems.', template: '%s | Bahl' },
+  description: 'Bahl is a multidisciplinary company with three businesses: Interiors & Smart Living, Engineering, and Market Planning & Development.',
+  keywords: ['Bahl', 'interior design Abuja', 'solar installation Abuja', 'smart home Nigeria', 'structural detailing Nigeria', 'technical drawings', 'software development Nigeria', 'SaaS Nigeria', 'AI systems Nigeria', 'business intelligence Nigeria', 'CRM systems Nigeria', 'automation Nigeria'],
+  openGraph: { title: 'Bahl — Spaces, Structures and Systems.', description: 'Interiors & Smart Living. Engineering. Market Planning & Development.', type: 'website', url: 'https://bahl.com.ng' },
   icons: { icon: '/icon.svg' },
 };
 
@@ -20,7 +20,7 @@ const jsonLd = {
   name: 'Bahl',
   url: 'https://bahl.com.ng',
   email: 'hello@bahl.com.ng',
-  description: 'Design, structural engineering and digital systems company.',
+  description: 'Bahl is a multidisciplinary company operating through Interiors & Smart Living, Engineering, and Market Planning & Development.',
   areaServed: 'Nigeria',
   sameAs: [],
 };
