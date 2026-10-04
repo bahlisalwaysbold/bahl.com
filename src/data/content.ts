@@ -110,7 +110,52 @@ export const testimonials: Testimonial[] = [
   { id: 't2', quote: 'Bahl helped turn a vague idea into something our team could actually work with.', name: 'Project feedback', company: 'Selected project' },
 ];
 
-export const articles: Article[] = [];
+export const articles: Article[] = [
+  {
+    id: 'a1',
+    title: 'One Bahl. Three businesses. A clearer way to work.',
+    slug: 'one-bahl-three-businesses',
+    excerpt: 'Bahl is being organized around Interiors & Smart Living, Engineering, and Market Planning & Development — so clients can understand where their brief belongs before they call.',
+    publishedAt: '2026-10-04',
+    body: 'We are building Bahl as one parent brand with three distinct businesses. The goal is simple: keep the company broad without making the client experience confusing.',
+    category: 'Bahl Update',
+    coverImage: 'https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1600&q=82',
+    featured: true,
+  },
+  {
+    id: 'a2',
+    title: 'A better brief makes better structural drawings.',
+    slug: 'better-brief-better-detailing',
+    excerpt: 'Before the linework starts, the right project information should already be in one place. That is the thinking behind Bahl Engineering’s detailing workflow.',
+    publishedAt: '2026-10-03',
+    body: 'Good structural detailing is not only about drawing. It is also about getting the scope, references, files, revisions and deadline clear enough for the technical work to move without avoidable back-and-forth.',
+    category: 'Engineering Note',
+    coverImage: 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1600&q=82',
+    featured: true,
+  },
+  {
+    id: 'a3',
+    title: 'Smart living starts with the space itself.',
+    slug: 'smart-living-starts-with-space',
+    excerpt: 'Solar and smart-home technology work better when they are planned as part of the way a space is used — not added as an afterthought.',
+    publishedAt: '2026-09-28',
+    body: 'Bahl Interiors & Smart Living brings interior design, renovation, solar and smart-home thinking into one conversation. The result is a home or workspace that looks intentional and works harder.',
+    category: 'Interiors Note',
+    coverImage: 'https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1600&q=82',
+    featured: true,
+  },
+  {
+    id: 'a4',
+    title: 'From idea to market: why systems matter.',
+    slug: 'from-idea-to-market',
+    excerpt: 'A good website is only one layer. Businesses increasingly need connected software, CRM, automation, data and customer journeys that work as one system.',
+    publishedAt: '2026-09-20',
+    body: 'Market Planning & Development is where Bahl helps businesses turn a real market problem into a working digital product or operating system — then keep improving it.',
+    category: 'Market Note',
+    coverImage: 'https://images.unsplash.com/photo-1547658719-da2b51169166?auto=format&fit=crop&w=1600&q=82',
+    featured: false,
+  },
+];
 
 export const team: TeamMember[] = [
   { id: 'tm1', name: 'Bahl Team', role: 'Interiors + Engineering + Market Planning & Development', bio: 'A practical multidisciplinary team built around design thinking, technical clarity and useful business and digital systems.' },
