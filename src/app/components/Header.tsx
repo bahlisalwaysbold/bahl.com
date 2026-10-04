@@ -9,8 +9,8 @@ import { CloseIcon, MenuIcon } from './Icons';
 
 const links = [
   { href: '/about', label: 'About' },
-  { href: '/divisions', label: 'Divisions' },
-  { href: '/portfolio', label: 'Portfolio' },
+  { href: '/divisions', label: 'What we do' },
+  { href: '/portfolio', label: 'Work' },
   { href: '/contact', label: 'Contact' },
 ];
 
