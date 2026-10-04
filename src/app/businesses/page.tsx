@@ -17,10 +17,7 @@ export default async function BusinessesPage() {
         <div className="container narrow">
           <p className="eyebrow">The Bahl group</p>
           <h1>One company. Three businesses. No guessing.</h1>
-          <p>
-            Bahl is built as a parent brand with three distinct businesses. Each one has a clear job;
-            together they give clients a practical path from idea to finished work.
-          </p>
+          <p>One parent brand. Three clear ways to work with us.</p>
         </div>
       </section>
 
@@ -29,12 +26,9 @@ export default async function BusinessesPage() {
           <div className="businesses-index">
             <div>
               <p className="eyebrow">01 / 03</p>
-              <h2>Choose the business that matches the brief.</h2>
+              <h2>Pick your lane.</h2>
             </div>
-            <p>
-              You can work with one Bahl business or move between them when a project crosses disciplines.
-              The parent stays the same; the specialist team changes.
-            </p>
+            <p>Start with one. Bring in another when the project needs it.</p>
           </div>
 
           <div className="businesses-list">
@@ -68,9 +62,9 @@ export default async function BusinessesPage() {
             body="A renovation can need solar. A building project can need coordinated technical drawings. A growing company can need a website, CRM and automation working together. Bahl keeps those relationships visible without turning every capability into another branch."
           />
           <div className="businesses-connection-grid">
-            <article><span>SPACES</span><h3>Interiors & Smart Living</h3><p>Design, renovation, solar and smart-home solutions.</p></article>
-            <article><span>STRUCTURES</span><h3>Engineering</h3><p>Structural detailing, technical drawings and coordination.</p></article>
-            <article><span>SYSTEMS</span><h3>Market Planning & Development</h3><p>Software, AI, data, commerce, CRM, automation and digital products.</p></article>
+            <article><span>SPACES</span><h3>Interiors & Smart Living</h3><p>Design. Renovate. Power. Connect.</p></article>
+            <article><span>STRUCTURES</span><h3>Engineering</h3><p>Detail. Draw. Coordinate.</p></article>
+            <article><span>SYSTEMS</span><h3>Market Planning & Development</h3><p>Build software. Connect data. Automate work.</p></article>
           </div>
         </div>
       </section>
@@ -79,7 +73,7 @@ export default async function BusinessesPage() {
         <div className="container cta-inner">
           <div>
             <p className="eyebrow eyebrow--light">Start with the brief</p>
-            <h2>Not sure which business fits? Tell Bahl what you are trying to build.</h2>
+            <h2>Not sure where you fit? Just tell us the problem.</h2>
           </div>
           <Link className="btn btn--light" href="/contact">Talk to Bahl <span aria-hidden="true">→</span></Link>
         </div>
