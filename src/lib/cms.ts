@@ -1,5 +1,5 @@
 import { divisions as localDivisions, projects as localProjects, team, testimonials, articles } from '@/data/content';
-import type { Division, Project } from '@/types/content';
+import type { Article, Division, Project } from '@/types/content';
 import { sanityClient, sanityConfigured } from './sanity';
 
 const branchServices = {
@@ -96,4 +96,22 @@ export async function getFeaturedProjects(): Promise<Project[]> {
 
 export async function getTeam() { return team; }
 export async function getTestimonials() { return testimonials; }
-export async function getArticles() { return articles; }
+export async function getArticles() {
+  if (sanityConfigured && sanityClient) {
+    try {
+      const items = await sanityClient.fetch<Article[]>(`*[_type == "article"] | order(publishedAt desc, _createdAt desc) {
+        "id": _id,
+        title,
+        "slug": slug.current,
+        excerpt,
+        "publishedAt": publishedAt,
+        "body": pt::text(body),
+        category,
+        "coverImage": coverImage.asset->url,
+        featured
+      }`, {}, { next: { revalidate: 60 } });
+      if (items?.length) return items;
+    } catch { /* Local fallback */ }
+  }
+  return articles;
+}

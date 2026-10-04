@@ -12,7 +12,7 @@ export default function Footer() {
         </div>
         <div>
           <p className="footer-label">Explore</p>
-          <div className="footer-links"><Link href="/about">About</Link><Link href="/divisions">What we do</Link><Link href="/portfolio">Work</Link><Link href="/contact">Contact</Link></div>
+          <div className="footer-links"><Link href="/about">About</Link><Link href="/businesses">Businesses</Link><Link href="/portfolio">Work</Link><Link href="/journal">Journal</Link><Link href="/contact">Contact</Link></div>
         </div>
         <div>
           <p className="footer-label">Contact</p>

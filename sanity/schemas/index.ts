@@ -58,6 +58,9 @@ export const article = {
     { name: 'slug', type: 'slug', title: 'Slug', options: { source: 'title' } },
     { name: 'excerpt', type: 'text', title: 'Excerpt' },
     { name: 'publishedAt', type: 'datetime', title: 'Published at' },
+    { name: 'category', type: 'string', title: 'Category', initialValue: 'Bahl Update' },
+    { name: 'coverImage', type: 'image', title: 'Cover image', options: { hotspot: true } },
+    { name: 'featured', type: 'boolean', title: 'Featured' },
     { name: 'body', type: 'array', title: 'Body', of: [{ type: 'block' }] },
   ]
 };
