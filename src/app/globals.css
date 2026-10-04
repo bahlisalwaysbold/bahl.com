@@ -752,3 +752,162 @@ figcaption { margin-top: 10px; font-size: .78rem; text-transform: uppercase; let
   .journal-card, .journal-feature, .business-row, .interiors-service-card { transition: none; }
   .journal-card__media .cover-image, .journal-feature__media .cover-image, .home-visual-strip__item .cover-image, .journal-visual-card .cover-image, .interiors-gallery__item .cover-image, .interiors-smart__image .cover-image { transition: none; }
 }
+
+/* Scan-first visual layer */
+:root {
+  --bahl-orange: #ff8a00;
+  --bahl-sun: #ffd35a;
+  --bahl-blue: #4d7cff;
+  --bahl-green: #27a874;
+  --bahl-sky: #eaf1ff;
+  --bahl-cream: #fff4df;
+  --bahl-mint: #e9f8f0;
+  --bahl-lilac: #f1edff;
+}
+.hero-word { display: inline-block; }
+.hero-word--spaces { color: #ffb143; }
+.hero-word--structures { color: #8ea9ff; }
+.hero-word--systems { color: #68d6aa; }
+
+.group-business-card {
+  position: relative;
+  overflow: hidden;
+  animation: bahlCardIn .7s cubic-bezier(.2,.75,.25,1) both;
+}
+.group-business-card:nth-child(1) { background: var(--bahl-cream); }
+.group-business-card:nth-child(2) { background: var(--bahl-sky); }
+.group-business-card:nth-child(3) { background: var(--bahl-mint); }
+.group-business-card::after {
+  content: "";
+  position: absolute;
+  width: 180px;
+  height: 180px;
+  right: -60px;
+  top: -60px;
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--division-accent), white 72%);
+  opacity: .7;
+  pointer-events: none;
+}
+.group-business-card > * { position: relative; z-index: 1; }
+.group-business-card:nth-child(2) { animation-delay: .08s; }
+.group-business-card:nth-child(3) { animation-delay: .16s; }
+
+.group-connection__grid article {
+  padding: 24px;
+  min-height: 220px;
+  border-radius: 18px;
+  border: 1px solid transparent;
+}
+.group-connection__grid article:nth-child(1) { background: var(--bahl-cream); border-color: #f3d9ac; }
+.group-connection__grid article:nth-child(2) { background: var(--bahl-sky); border-color: #cbd8ff; }
+.group-connection__grid article:nth-child(3) { background: var(--bahl-mint); border-color: #bfe9d4; }
+.group-connection__grid article h3 { margin-top: 32px; }
+
+.journal-card { animation: bahlCardIn .65s cubic-bezier(.2,.75,.25,1) both; }
+.journal-card:nth-child(2) { animation-delay: .08s; }
+.journal-card:nth-child(3) { animation-delay: .16s; }
+.journal-card__excerpt {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+}
+
+.business-row {
+  min-height: 110px;
+  border-radius: 14px;
+  padding-inline: 18px;
+  animation: bahlCardIn .65s cubic-bezier(.2,.75,.25,1) both;
+}
+.business-row:nth-child(2) { animation-delay: .08s; }
+.business-row:nth-child(3) { animation-delay: .16s; }
+.business-row:nth-child(1) { background: linear-gradient(90deg, var(--bahl-cream), transparent 75%); }
+.business-row:nth-child(2) { background: linear-gradient(90deg, var(--bahl-sky), transparent 75%); }
+.business-row:nth-child(3) { background: linear-gradient(90deg, var(--bahl-mint), transparent 75%); }
+
+.interiors-page .interiors-service-card {
+  animation: bahlCardIn .65s cubic-bezier(.2,.75,.25,1) both;
+}
+.interiors-page .interiors-service-card:nth-child(1) { background: var(--bahl-cream); border-color: #f1dbb7; }
+.interiors-page .interiors-service-card:nth-child(2) { background: var(--bahl-lilac); border-color: #d9d1ff; }
+.interiors-page .interiors-service-card:nth-child(3) { background: var(--bahl-mint); border-color: #bfe9d4; }
+.interiors-page .interiors-service-card:nth-child(4) { background: var(--bahl-sky); border-color: #cad7ff; }
+.interiors-page .interiors-service-card:nth-child(2) { animation-delay: .08s; }
+.interiors-page .interiors-service-card:nth-child(3) { animation-delay: .16s; }
+.interiors-page .interiors-service-card:nth-child(4) { animation-delay: .24s; }
+
+.interiors-smart {
+  background: linear-gradient(135deg, #15352e 0%, #102b3a 100%);
+}
+.interiors-smart__chips span { background: rgba(255,255,255,.08); }
+
+.interiors-anchor-nav a {
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  padding: 0 12px;
+  border-radius: 999px;
+  background: #fff;
+  border: 1px solid var(--line);
+  transition: transform .2s ease, background-color .2s ease, border-color .2s ease;
+}
+.interiors-anchor-nav a:hover,
+.interiors-anchor-nav a:focus-visible {
+  transform: translateY(-2px);
+  background: var(--bahl-cream);
+  border-color: var(--bahl-orange);
+  text-decoration: none;
+}
+
+.interiors-gallery__item,
+.journal-visual-card,
+.home-visual-strip__item {
+  animation: bahlCardIn .65s cubic-bezier(.2,.75,.25,1) both;
+}
+.interiors-gallery__item:nth-child(2),
+.journal-visual-card:nth-child(2),
+.home-visual-strip__item:nth-child(2) { animation-delay: .06s; }
+.interiors-gallery__item:nth-child(3),
+.journal-visual-card:nth-child(3),
+.home-visual-strip__item:nth-child(3) { animation-delay: .12s; }
+.interiors-gallery__item:nth-child(4),
+.journal-visual-card:nth-child(4) { animation-delay: .18s; }
+.interiors-gallery__item:nth-child(5),
+.journal-visual-card:nth-child(5) { animation-delay: .24s; }
+
+@keyframes bahlCardIn {
+  from { opacity: 0; transform: translateY(16px) scale(.985); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.group-business-card:focus-visible,
+.journal-card:focus-visible,
+.business-row:focus-visible,
+.home-visual-strip__item:focus-visible,
+.journal-visual-card:focus-visible {
+  outline: 3px solid #2a73ff;
+  outline-offset: 5px;
+}
+.business-row__arrow { min-width: 44px; min-height: 44px; display: grid; place-items: center; }
+
+@media (max-width: 760px) {
+  .group-business-card { min-height: 330px; }
+  .group-business-card__top { margin-bottom: 34px; }
+  .group-connection__grid article { min-height: 185px; }
+  .business-row { min-height: 128px; padding-inline: 12px; }
+  .interiors-service-card { min-height: 250px; }
+  .interiors-service-card h3 { margin-top: 40px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .group-business-card,
+  .journal-card,
+  .business-row,
+  .interiors-page .interiors-service-card,
+  .interiors-gallery__item,
+  .journal-visual-card,
+  .home-visual-strip__item {
+    animation: none;
+  }
+}
