@@ -30,8 +30,8 @@ export default async function DivisionPage({ params }: { params: Promise<{ slug:
   const division = await getDivisionBySlug(slug);
   if (!division) notFound();
   const projects = (await getProjects()).filter((project) => project.divisionId === division.id);
-  if (division.id === 'studio') return <InteriorsPage division={division} projects={projects} />;
-  const engineering = division.id === 'engineering';
+  if (division.slug === 'studio') return <InteriorsPage division={division} projects={projects} />;
+  const engineering = division.slug === 'engineering';
 
   return (
     <div className="page-shell" style={{ ['--division-accent' as string]: division.accent }}>
