@@ -49,6 +49,9 @@ export type Article = {
   excerpt: string;
   publishedAt: string;
   body: string;
+  category?: string;
+  coverImage?: string;
+  featured?: boolean;
 };
 
 export type TeamMember = {
