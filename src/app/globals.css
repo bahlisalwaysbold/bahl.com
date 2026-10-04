@@ -553,3 +553,33 @@ figcaption { margin-top: 10px; font-size: .78rem; text-transform: uppercase; let
 }
 .group-about-tease__grid > div:last-child { max-width: 560px; }
 .group-about-tease__grid > div:last-child p { color: var(--muted); font-size: 1.06rem; }
+
+
+@media (max-width: 960px) {
+  .group-hero__inner, .group-intro__grid, .group-about-tease__grid, .group-statement__grid { grid-template-columns: 1fr; }
+  .group-hero__visual { min-height: 560px; }
+  .group-business-grid { grid-template-columns: 1fr; }
+  .group-business-card { min-height: 390px; }
+  .group-connection__grid { grid-template-columns: 1fr; }
+  .group-connection__grid article { padding-top: 18px; }
+}
+
+@media (max-width: 720px) {
+  .group-hero { min-height: auto; padding: 54px 0 52px; }
+  .group-hero h1 { font-size: clamp(4rem, 18vw, 6.1rem); }
+  .group-hero__lead { font-size: 1rem; }
+  .group-hero__micro { grid-template-columns: 1fr; gap: 10px; margin-top: 34px; }
+  .group-hero__visual { min-height: 430px; margin-top: 10px; }
+  .group-hero__photo { width: 80%; height: 74%; top: 10%; }
+  .group-hero__brand-card { width: 235px; left: 0; top: 5%; padding: 17px; }
+  .group-hero__bird { min-height: 82px; }
+  .group-hero__bird .bahl-bird { width: 98px; height: 80px; }
+  .group-hero__brand-card .bahl-wordmark { width: 138px; }
+  .group-hero__caption { left: 0; right: auto; bottom: 0; display: grid; gap: 5px; }
+  .group-hero__orbit--one { width: 300px; height: 300px; }
+  .group-hero__orbit--two { width: 180px; height: 180px; }
+  .group-intro, .group-connection, .group-statement { padding-top: 74px; padding-bottom: 74px; }
+  .group-business-card { min-height: 390px; padding: 22px; }
+  .group-business-card__top { margin-bottom: 50px; }
+  .group-statement h2 { font-size: clamp(2.8rem, 12vw, 4.2rem); }
+}
