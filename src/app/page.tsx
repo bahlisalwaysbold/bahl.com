@@ -17,21 +17,21 @@ export default async function HomePage() {
       <section className="hero section-dark">
         <div className="container hero-grid">
           <div className="hero-copy">
-            <p className="eyebrow eyebrow--light">Design, engineering and digital, under one roof.</p>
-            <h1>One Bahl for every idea worth building.</h1>
-            <p className="hero-lead">Design, structural detailing and digital systems brought together under one growing brand — so you can move from idea to a clear next step without changing teams at every turn.</p>
+            <p className="eyebrow eyebrow--light">Interiors & Smart Living / Engineering / Market Planning & Development</p>
+            <h1>Three disciplines. One Bahl standard.</h1>
+            <p className="hero-lead">Bahl transforms spaces, delivers technical engineering work, and develops the business systems and digital products that turn ideas into something useful, market-ready and scalable.</p>
             <div className="hero-actions">
               <Button variant="light" href="/contact" arrow>Request a consultation</Button>
               <WhatsAppButton label="WhatsApp" variant="dark" size="sm" location="home_hero" />
             </div>
-            <div className="trust-row"><span>01 / Clarity</span><span>02 / Proof</span><span>03 / Action</span></div>
+            <div className="trust-row"><span>01 / Interiors</span><span>02 / Engineering</span><span>03 / Market Development</span></div>
           </div>
           <div className="hero-media" aria-label="BAHL brand mark and project image">
             <div className="hero-orbit hero-orbit--one" />
             <div className="hero-orbit hero-orbit--two" />
             <div className="hero-logo-stage">
               <div className="hero-flight-mark"><BahlBird className="bahl-bird" /></div>
-              <div className="hero-logo-caption"><BahlWordmark /><span>DESIGN, ENGINEERING AND DIGITAL&nbsp;&nbsp;/&nbsp;&nbsp;UNDER ONE ROOF</span></div>
+              <div className="hero-logo-caption"><BahlWordmark /><span>THREE DISCIPLINES&nbsp;&nbsp;/&nbsp;&nbsp;ONE BAHL STANDARD</span></div>
             </div>
             <div className="hero-photo">
               <Image src="https://images.unsplash.com/photo-1511818966892-d7d671e672a2?auto=format&fit=crop&w=1400&q=82" alt="Modern architectural structure" fill priority sizes="(max-width: 900px) 100vw, 50vw" className="cover-image" />
@@ -42,7 +42,7 @@ export default async function HomePage() {
 
       <section className="section" aria-labelledby="divisions-title">
         <div className="container">
-          <SectionHeading eyebrow="Divisions" title="Different disciplines. One Bahl standard." body="Start with the branch you need. Each division shares the same commitment to clarity, useful thinking and finished work." />
+          <SectionHeading eyebrow="Bahl / three branches" title="Different capabilities. One clear company." body="Every live service sits inside one of three branches. That keeps Bahl easy to understand today and gives new capabilities a clear home tomorrow." />
           <div className="division-grid">{divisions.map((division) => <DivisionCard key={division.id} division={division} />)}</div>
         </div>
       </section>
